@@ -1,0 +1,57 @@
+btn-success{
+    top: 47px;
+    left: 1634px;
+    width: 100px;
+    height: 50px;
+    border-radius: 200px;
+    background-color: white;
+    color: green;
+    margin-right: 50px;    
+}
+.logo_img{
+    margin-left: 60px;
+}
+img{
+    
+    right: 0;  
+    top: 20px;
+    position: relative;
+    float:right;
+}
+
+ .col-img{
+   right: 0px;
+   top : 0px;
+} 
+
+#btn_signup{
+    position: absolute;
+    top:40px;
+    right: 40px;
+    color: #21CE99;
+    border-radius: 50px;
+    background-image: linear-gradient(to left,white ,white);
+
+}
+
+#explore{
+    border-radius: 50px;
+    background-image: linear-gradient(to left,#21CE99 ,#1AF5B2);
+    border-color: #1AF5B2;
+}
+
+.tag {
+    position: relative;
+    z-index: 1;
+    float: left;
+    padding: 5px;
+    font-weight: bold;
+    background-color: white;
+    margin-left: 610px;
+ }
+
+ #tag-img{
+    position:relative;
+    z-index:0;
+    top:-28px;
+ }
