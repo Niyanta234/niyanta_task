@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-let UserSchema= new Schema({
-    fullname : {
+let UserSchema= new mongoose.Schema({
+    fullName : {
         type:String , 
         required:true 
     },
@@ -11,11 +10,11 @@ let UserSchema= new Schema({
         required:true,
         unique:true
     },
-    mob:{
+    mobileNo:{
         type:Number,
         required:true
     },
-    pass:{
+    password:{
         type:String,
         required:true
     }

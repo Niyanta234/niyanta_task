@@ -1,82 +1,185 @@
 <!-- <link rel="stylesheet" href="style.css"> -->
- 
+
 <div class="wrapper">
   <div class="container">
     <div class="row">
       <div class="col-6">
         <div class="row">
+          <div
+            class="col justify-content-end m-4 shadow p-3 mb-5 bg-body rounded"
+          >
+            <button class="login" (click)="signin()">Sign In</button>
+            <button class="signup" (click)="signup()">Sign Up</button>
 
-          <div class="col justify-content-end m-4 shadow p-3 mb-5 bg-body rounded">
-            <button class="login" (click)="signin()">Sign In </button>
-          <button class="signup" (click)="signup()">Sign Up</button>
-
-          <div class="text-center" style="background-color: white">
-            <p>Please Provide the following details to login</p>
-            <p>into the system</p>
-          </div>
-
-          <div class="login-form" *ngIf="isLogin">
-            <div class="input-icons" style="position: relative;">
-              <i class="fa fa-envelope " style="position:absolute;padding:10px 12px ;"></i>
-              <input type="text" formControlName="email" placeholder="Email" class="form-control p-3 "
-                style="text-indent:20px;" /><br />
+            <div class="text-center" style="background-color: white">
+              <p>Please Provide the following details to login</p>
+              <p>into the system</p>
             </div>
 
-            <div class="input-icons" style="position: relative;">
-              <i class="fa-solid fa-eye-slash " style="position:absolute;padding:10px 12px ;"></i>
-              <input type="password" formControlName="password" placeholder="Password" class="form-control p-3 "
-                style="text-indent:20px;" /><br />
-            </div>
-
-            <div class="row">
-              <div class="col">
-                <!-- <div class="btn btn-primary" routerLink="/setprofile" (click)="login()">Sign In</div> -->
-                <div class="btn btn-primary" routerLink="/setprofile">Sign In</div>
-              </div>
-
-              <div class="col d-flex flex-row-reverse m-3">
-                <a routerLink="/forgotpassword">Forgot Password ?</a>
-              </div>
-            </div>
-
-            <p class="text-muted p-3 text-center">
-              Don't have an account ? <a class="text-reset" (click)="signup()">Sign Up</a>.
-            </p>
-          </div>
-
-          <div class="col">
-            <div class="signup-form" *ngIf="isSignUp">
-              <input type="text" placeholder="Full Name" class="form-control p-3" /><br />
-              <input type="text" placeholder="Email Id" class="form-control p-3" /><br />
-              <input type="text" placeholder="Phone Number" class="form-control p-3" /> <br />
-
-              <div class="input-icons" style="position: relative;">
-                <i class="fa-solid fa-eye-slash " style="position:absolute; right:0px;padding:10px 12px ;"></i>
-                <input type="password" placeholder="Password" class="form-control " style="text-indent:20px;" /><br />
-              </div>
-
-              <input type="password" placeholder="Confirm Password" class="form-control p-3" />
-              
-              <div class="row m-3">
-                <div class="col">
-                  <button class="btn">Submit</button>
+            <form [formGroup]="loginform">
+              <div class="login-form" *ngIf="isLogin">
+                <div class="input-icons" style="position: relative">
+                  <i
+                    class="fa fa-envelope"
+                    style="position: absolute; padding: 10px 12px"
+                  ></i>
+                  <input
+                    type="text"
+                    formControlName="email"
+                    placeholder="Email"
+                    class="form-control p-3"
+                    style="text-indent: 20px"
+                  /><br />
                 </div>
-                <div class="col d-flex flex-row-reverse pr-5 m-3">
-                  <a style="color: black" (click)="signin()">Back to LOGIN</a>
+
+                <div class="input-icons" style="position: relativeemail">
+                  <i
+                    class="fa-solid fa-eye-slash"
+                    style="position: absolute; padding: 10px 12px"
+                  ></i>
+                  <input
+                    type="password"
+                    formControlName="password"
+                    placeholder="Password"
+                    class="form-control p-3"
+                    style="text-indent: 20px"
+                  /><br />
                 </div>
+
+                <div class="row">
+                  <div class="col">
+                    <!-- <div class="btn btn-primary" routerLink="/setprofile" (click)="login()">Sign In</div> -->
+                    <div class="btn btn-primary" routerLink="/setprofile">
+                      Sign In
+                    </div>
+                  </div>
+
+                  <div class="col d-flex flex-row-reverse m-3">
+                    <a routerLink="/forgotpassword">Forgot Password ?</a>
+                  </div>
+                </div>
+
+                <p class="text-muted p-3 text-center">
+                  Don't have an account ?
+                  <a class="text-reset" (click)="signup()">Sign Up</a>.
+                </p>
               </div>
+            </form>
+
+            <div class="col">
+              <form [formGroup]="signupform">
+                <div class="signup-form" *ngIf="isSignUp">
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      class="form-control p-3"
+                      formControlName="fullName"
+                    />
+                    <div
+                      *ngIf="
+                        signupform.get('fullName')?.hasError('required') &&
+                        signupform.get('fullName')?.touched
+                      "
+                      style="color: red"
+                    >
+                      Full Name is required
+                    </div>
+                    <br />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Email Id"
+                      class="form-control p-3"
+                      formControlName="email"
+                    />
+                    <div
+                      *ngIf="
+                        signupform.get('email')?.hasError('required') &&
+                        signupform.get('email')?.touched
+                      "
+                      style="color: red"
+                    >
+                      Email is required
+                    </div>
+                    <br />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Phone Number"
+                      class="form-control p-3"
+                      formControlName="mobileNo"
+                    />
+                    <div
+                      *ngIf="
+                        signupform.get('mobileNo')?.hasError('required') &&
+                        signupform.get('mobileNo')?.touched
+                      "
+                      style="color: red"
+                    >
+                      mobileNo is required
+                    </div>
+                    <br />
+                  </div>
+
+                  <div class="input-icons" style="position: relative">
+                    <i
+                      class="fa-solid fa-eye-slash"
+                      style="position: absolute; right: 0px; padding: 10px 12px"
+                    ></i>
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      class="form-control"
+                      style="text-indent: 20px"
+                      formControlName="password"
+                    />
+                    <div
+                      *ngIf="
+                        signupform.get('password')?.hasError('required') &&
+                        signupform.get('password')?.touched
+                      "
+                      style="color: red"
+                    >
+                      mobileNo is required
+                    </div>
+                  </div>
+                  <br />
+
+                  <input
+                    type="password"
+                    placeholder="Confirm Password"
+                    class="form-control p-3"
+                    formControlName="conformpass"
+                  />
+
+                  <div class="row m-3">
+                    <div class="col">
+                      <button class="btn" (click)="signUp()">Submit</button>
+                    </div>
+                    <div class="col d-flex flex-row-reverse pr-5 m-3">
+                      <a style="color: black" (click)="signin()"
+                        >Back to LOGIN</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-
         </div>
       </div>
 
-
-      <div class="col-6 mx-auto " >
-        <img src="../assets/images/group.png" alt="" height="750" style="margin-top: -68px; margin-left: 100px;"/>
+      <div class="col-6 mx-auto">
+        <img
+          src="../assets/images/group.png"
+          alt=""
+          height="640"
+          style="margin-top: -68px; margin-left: 100px"
+        />
       </div>
     </div>
-
   </div>
 </div>

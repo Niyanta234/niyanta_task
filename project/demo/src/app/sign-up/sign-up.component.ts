@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators ,FormBuilder} from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 @Component({
   selector: 'app-sign-up',
@@ -10,8 +10,26 @@ export class SignUpComponent implements OnInit {
 
   isSignUp:boolean = false;
   isLogin:boolean = true;
-  loginForm !: FormGroup;
-  constructor(private auth:AuthService) { }
+  loginform: FormGroup= new FormGroup({});
+  signupform:FormGroup = new FormGroup({});
+  constructor(private auth:AuthService, private fb: FormBuilder ,private cd:FormBuilder) {
+    this.signupform = this.fb.group({
+      email: ['', Validators.required,Validators.email],
+      password:['',Validators.required,Validators.minLength(8)],
+      fullName:['',Validators.required],
+      mobileNo:['',Validators.required],
+      conformpass:['',Validators.required]
+      
+    });
+
+    this.loginform =this.cd.group({
+    email: ['', Validators.required],
+    password:['',Validators.required],
+    })
+
+  }
+
+ 
 
 //   ngOnInit(): void {
 // 1  this.loginForm = new FormGroup({
@@ -21,11 +39,16 @@ export class SignUpComponent implements OnInit {
 //   }
 
 ngOnInit(): void {
-    
+  
 }
 
+signUp(){
+  this.auth.btn_signup(this.signupform.value)
+  .subscribe(res=>{
+    console.log(res);
 
-  
+  })
+}
   
  signin(){
     this.isLogin=true;
