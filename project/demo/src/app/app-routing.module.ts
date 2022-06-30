@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'resetpassword',component:ResetPasswordComponent},
   {path:'setprofile',component:SetProfileComponent},
   {path:'paymenthistory',component:PaymentHistoryComponent},
-  {path:'addpayment',component:AddPaymentComponent}
+  {path:'addpayment',component:AddPaymentComponent},
 ];
 
 @NgModule({

@@ -1,67 +1,111 @@
 <!-- <link rel="stylesheet" href="style.css"> -->
-
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
+<div class="main-wrapper">
+  <div class="logo">
+    <img src="../../assets/images/logo.png" height="90px" alt="" />
+  </div>
+  <div class="wrapper" style="height: calc(100% - 160px)">
+    <div class="container" style="height: 100%">
+      <div
+        class="row-1 w-500 justify-content-end m-4 bg-body rounded"
+        style="height: 92%"
+      >
         <div class="row">
-          <div
-            class="col justify-content-end m-4 shadow p-3 mb-5 bg-body rounded"
-          >
-            <button class="login" (click)="signin()">Sign In</button>
-            <button class="signup" (click)="signup()">Sign Up</button>
+          <div class="">
+            <div>
+              <button class="login" (click)="signin()">Sign In</button>
+              <button class="signup" (click)="signup()">Sign Up</button>
+            </div>
 
-            <div class="text-center" style="background-color: white">
-              <p>Please Provide the following details to login</p>
-              <p>into the system</p>
+            <div
+              class="text-center login-subline"
+              style="background-color: white"
+            >
+              <p>
+                Please Provide the following details to login into the system
+              </p>
             </div>
 
             <form [formGroup]="loginform">
-              <div class="login-form" *ngIf="isLogin">
+              <div class="login-form mt-50" *ngIf="isLogin">
                 <div class="input-icons" style="position: relative">
                   <i
                     class="fa fa-envelope"
-                    style="position: absolute; padding: 10px 12px"
+                    style="
+                      position: absolute;
+                      top: 19px;
+                      left: 20px;
+                      font-size: 22px;
+                      color: gray;
+                    "
                   ></i>
                   <input
                     type="text"
                     formControlName="email"
                     placeholder="Email"
                     class="form-control p-3"
-                    style="text-indent: 20px"
-                  /><br />
+                    style="text-indent: 35px"
+                  />
+                  <div
+                    *ngIf="
+                      loginform.get('email')?.hasError('required') &&
+                      loginform.get('email')?.touched
+                    "
+                    style="color: red; line-height: 1; height: 7px"
+                  >
+                    Email is required
+                  </div>
                 </div>
 
-                <div class="input-icons" style="position: relativeemail">
+                <div class="input-icons" style="position: relative">
                   <i
                     class="fa-solid fa-eye-slash"
-                    style="position: absolute; padding: 10px 12px"
+                    style="
+                      position: absolute;
+                      top: 19px;
+                      left: 20px;
+                      font-size: 22px;
+                      color: gray;
+                    "
                   ></i>
                   <input
                     type="password"
                     formControlName="password"
                     placeholder="Password"
                     class="form-control p-3"
-                    style="text-indent: 20px"
-                  /><br />
+                    style="text-indent: 35px"
+                  />
+                  <div
+                    *ngIf="
+                      loginform.get('password')?.hasError('required') &&
+                      loginform.get('password')?.touched
+                    "
+                    style="color: red; line-height: 1; height: 7px"
+                  >
+                    Password is required
+                  </div>
                 </div>
 
-                <div class="row">
+                <div class="row mt-30">
                   <div class="col">
-                    <!-- <div class="btn btn-primary" routerLink="/setprofile" (click)="login()">Sign In</div> -->
-                    <div class="btn btn-primary" routerLink="/setprofile">
+                    <button class="btn btn-primary" (click)="signIn()">
                       Sign In
-                    </div>
+                    </button>
                   </div>
 
                   <div class="col d-flex flex-row-reverse m-3">
+                    
                     <a routerLink="/forgotpassword">Forgot Password ?</a>
                   </div>
                 </div>
 
                 <p class="text-muted p-3 text-center">
                   Don't have an account ?
-                  <a class="text-reset" (click)="signup()">Sign Up</a>.
+                  <a
+                    class="text-reset"
+                    (click)="signup()"
+                    style="color: #1af5b2 !important; font-weight: 900"
+                    >Sign Up</a
+                  >.
                 </p>
               </div>
             </form>
@@ -69,7 +113,7 @@
             <div class="col">
               <form [formGroup]="signupform">
                 <div class="signup-form" *ngIf="isSignUp">
-                  <div>
+                  <div style="margin-top: 20px">
                     <input
                       type="text"
                       placeholder="Full Name"
@@ -81,11 +125,10 @@
                         signupform.get('fullName')?.hasError('required') &&
                         signupform.get('fullName')?.touched
                       "
-                      style="color: red"
+                      style="color: red; line-height: 1; height: 7px"
                     >
                       Full Name is required
                     </div>
-                    <br />
                   </div>
                   <div>
                     <input
@@ -99,11 +142,10 @@
                         signupform.get('email')?.hasError('required') &&
                         signupform.get('email')?.touched
                       "
-                      style="color: red"
+                      style="color: red; line-height: 1; height: 7px"
                     >
                       Email is required
                     </div>
-                    <br />
                   </div>
                   <div>
                     <input
@@ -117,23 +159,29 @@
                         signupform.get('mobileNo')?.hasError('required') &&
                         signupform.get('mobileNo')?.touched
                       "
-                      style="color: red"
+                      style="color: red; line-height: 1; height: 7px"
                     >
                       mobileNo is required
                     </div>
-                    <br />
                   </div>
 
                   <div class="input-icons" style="position: relative">
                     <i
                       class="fa-solid fa-eye-slash"
-                      style="position: absolute; right: 0px; padding: 10px 12px"
+                      style="
+                        position: absolute;
+                        right: 0px;
+                        top: 9px;
+                        padding: 10px 12px;
+                        font-size: 21px;
+                        color: gray;
+                      "
                     ></i>
                     <input
                       type="password"
                       placeholder="Password"
                       class="form-control"
-                      style="text-indent: 20px"
+                      style="text-indent: 20px; height: 58px"
                       formControlName="password"
                     />
                     <div
@@ -141,27 +189,26 @@
                         signupform.get('password')?.hasError('required') &&
                         signupform.get('password')?.touched
                       "
-                      style="color: red"
+                      style="color: red; line-height: 1; height: 7px"
                     >
                       mobileNo is required
                     </div>
                   </div>
-                  <br />
 
                   <input
                     type="password"
                     placeholder="Confirm Password"
                     class="form-control p-3"
-                    formControlName="conformpass"
+                    formControlName="confirmpass"
                   />
 
                   <div class="row m-3">
                     <div class="col">
                       <button class="btn" (click)="signUp()">Submit</button>
                     </div>
-                    <div class="col d-flex flex-row-reverse pr-5 m-3">
+                    <div class="col d-flex flex-row-reverse m-3">
                       <a style="color: black" (click)="signin()"
-                        >Back to LOGIN</a
+                        >BACK TO LOGIN</a
                       >
                     </div>
                   </div>
@@ -170,15 +217,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-6 mx-auto">
-        <img
-          src="../assets/images/group.png"
-          alt=""
-          height="640"
-          style="margin-top: -68px; margin-left: 100px"
-        />
       </div>
     </div>
   </div>

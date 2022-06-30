@@ -9,9 +9,25 @@ export class AuthService {
   constructor(private http :HttpClient) { }
   
   btn_signup(data:any){
-  
   console.log(data);
     return this.http.post<any>('http://localhost:3000/user/signup',data);
-
+    
   }
+  
+  btn_signin(data:any){
+    console.log(data);
+    return this.http.post<any>('http://localhost:3000/user/login',data);
+  }
+  
+  forgot_pass(data:any){
+    console.log(data);
+    return this.http.post<any>('http://localhost:3000/user/password/forgot',data);
+  
+  }
+  
+  reset_pass(data:any){
+    console.log(data);
+    return this.http.post<any>('http://localhost:3000/user/password/reset/:token',data);
+  }
+  
 }

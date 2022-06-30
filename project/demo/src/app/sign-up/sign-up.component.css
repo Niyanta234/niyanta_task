@@ -1,64 +1,83 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   background: #e9eaea;
   font-family: roboto;
   user-select: none;
 }
 
-.container{
+.container {
   width: auto;
   margin: auto auto;
-  
+
 }
-.side_img{
+
+.side_img {
   position: absolute;
-    top: 20px;
-    right: 0; 
+  top: 20px;
+  right: 0;
 }
 
 
 
 .signup,
-.login{
+.login {
   width: 50%;
   background: #fff;
   float: left;
-  height: 60px;
-  line-height: 60px;
   text-align: center;
   cursor: pointer;
   text-transform: uppercase;
   border-color: white;
   border: solid 0;
+  font-size: 30px;
 }
 
-.signup-form{
+.login-subline {
+  color: gray;
+  font-size: 14px;
+}
+
+.login-subline p {
+  margin-top: 5em;
+}
+
+.signup-form {
   background: #fff;
-  padding: 40px;
+  padding-inline: 15px;
   clear: both;
   width: 100%;
   box-sizing: border-box;
   height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.login-form{
+
+.login-form {
   background: #fff;
-  padding: 40px;
+  padding-block: 21px;
   clear: both;
   width: 100%;
   box-sizing: border-box;
   height: 300px;
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.form-control{
+.mt-30 {
+  margin-top: 30px;
+}
+
+.form-control {
   border-radius: 50px;
 }
 
-.btn{
+.btn {
   width: 100%;
   height: 60px;
   text-align: center;
@@ -69,35 +88,77 @@ body{
   cursor: pointer;
   margin-bottom: 30px;
   border-radius: 50px;
-  background-image: linear-gradient(to left, #21CE99 ,#1AF5B2);
+  background-image: linear-gradient(to left, #21CE99, #1AF5B2);
   border-color: #1AF5B2;
 }
-label{
+
+label {
   background-color: white;
   width: 100%;
 }
 
+.w-500 {
+  width: 500px;
+}
+
+.w-500>div {
+  padding-inline: 3rem;
+  padding-block: 2rem;
+}
 
 
 
 
-::-webkit-input-placeholder { 
+::-webkit-input-placeholder {
   color: #3e3e40;
   font-family: roboto;
 }
-::-moz-placeholder { 
+
+::-moz-placeholder {
   color: #3e3e40;
   font-family: roboto;
 }
+
 :-ms-input-placeholder {
   color: #3e3e40;
   font-family: roboto;
 }
-:-moz-placeholder { 
+
+:-moz-placeholder {
   color: #3e3e40;
   font-family: roboto;
 }
 
-  
 
 
+
+.logo {
+  margin-inline: 80px;
+  padding-top: 45px;
+}
+
+
+
+input {
+  height: unset;
+}
+
+.bg-body {
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+/* .input-icons>i {
+  top: 50%;
+  transform: translate(92%, -100%);
+  font-size: 22px;
+  color: gray;
+} */
+@media (max-width: 480px) {
+  .w-500 {
+    width: 87vw;
+  }
+}

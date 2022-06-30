@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+body {
     background-image: url('assets/images/layer.png');
+
+}
+
+.logo {
+    margin-inline: 80px;
+    padding-top: 45px;
+}
+
+.main-wrapper {
+    width: 100%;
+    background-image: url(./assets/images/group.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 100vh;
+    z-index: 99999;
 }

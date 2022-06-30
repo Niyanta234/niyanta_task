@@ -1,323 +1,318 @@
+<div class="logo">
+  <img src="../../assets/images/logo.png" height="90px" alt="">
+</div>
 <div class="container mb-5">
-    <div class="main mt-5 border p-2 main w-75 mx-auto border border-light">
-      <div class="row ">
-        <p class="text-start" style="color: gray;">
-          Please provide following details to complete your profile :
-        </p>
+  <div class="main mt-5 border p-2 main w-75 mx-auto border border-light">
+    <div class="row ">
+      <p class="text-start" style="color: gray;">
+        Please provide following details to complete your profile :
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <img src="../assets/images/user.svg" alt="" height="100px" width="100px" />
       </div>
-  
-      <div class="row">
-        <div class="col d-flex justify-content-center">
-          <img
-            src="../assets/images/user.svg"
-            alt=""
-            height="100px"
-            width="100px"
-          />
-        </div>
+    </div>
+
+    <div class="row m-2">
+      <p class="text-strat">Basic Details :</p>
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
+        <input type="date" placeholder="Date of birth" class="form-control" />
       </div>
-  
-      <div class="row m-2">
-        <p class="text-strat">Basic Details :</p>
+      <div class="col"></div>
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
+        <input type="text" placeholder="Address line 1" class="form-control" />
       </div>
-  
-      <div class="row m-2 p-2">
-        <div class="col">
-          <input type="date" placeholder="Date of birth" class="form-control" />
-        </div>
-        <div class="col"></div>
-      </div>
-  
-      <div class="row m-2 p-2">
-        <div class="col">
-          <input type="text" placeholder="Address line 1" class="form-control" />
-        </div>
-      </div>
-  
-      <div class="row m-2 p-2" >
-        <div class="col">
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
         <input type="text" placeholder="Address line 2" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
+        <input type="text" placeholder="Postal code" class="form-control" />
+      </div>
+      <div class="col">
+        <div id="city">
+          <select class="form-control">
+            <option selected>City</option>
+            <option value="1">Ahmedabad</option>
+            <option value="2">Baroda</option>
+            <option value="3">Pune</option>
+          </select>
         </div>
       </div>
-  
-      <div class="row m-2 p-2">
-        <div class="col">
-          <input type="text" placeholder="Postal code" class="form-control" />
-        </div>
-        <div class="col">
-          <div id="city">
-            <select class="form-control">
-              <option selected>City</option>
-              <option value="1">Ahmedabad</option>
-              <option value="2">Baroda</option>
-              <option value="3">Pune</option>
-            </select>
-          </div>
-        </div>
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
+        <select class="form-control">
+          <option selected>State</option>
+          <option value="1">Gujarat</option>
+          <option value="2">Delhi</option>
+          <option value="3">Goa</option>
+        </select>
       </div>
-      
-        <div class="row m-2 p-2">
-          <div class="col">
-            <select class="form-control">
-              <option selected>State</option>
-              <option value="1">Gujarat</option>
-              <option value="2">Delhi</option>
-              <option value="3">Goa</option>
-            </select>
-          </div>
-          <div class="col">
-            <select class="form-control">
-              <option selected>LGA</option>
-              <option value="1">Gujarat</option>
-              <option value="2">Delhi</option>
-              <option value="3">Goa</option>
-            </select>
-          </div>
-        </div>
-  
-        <div class="row m-2 p-2">
-          <div class="col">
-            <select class="form-control">
-              <option selected>Country</option>
-              <option value="1">India</option>
-              <option value="2">USA</option>
-              <option value="3">UK</option>
-            </select>
-          </div>
-          <div class="col">
-            <select class="form-control">
-              <option selected>Daily Woges</option>
-              <option value="1">Gujarat</option>
-              <option value="2">Delhi</option>
-              <option value="3">Goa</option>
-            </select>
-          </div>
-        </div>
-  
-        <div class="row m-2 p-2">
-          <p class="text-start">Educational Details & Skill Sets :</p>
-        </div>
-  
-        <div class="row m-2 p-2">
-          <div class="col">
-            <select class="form-control">
-              <option selected>Most recent Education Degree</option>
-              <option value="1">Gujarat</option>
-              <option value="2">Delhi</option>
-              <option value="3">Goa</option>
-            </select>
-          </div>
-          <div class="col">
-              Upload certification(If Any) : <button class="browse">Browse</button>
-          </div>
-        </div>
-  
-        <div class="row m-2 p-2">
-          <p class="text-start">Skill Sets & Trade :</p>
-          
-          <div class="row m-2">
-            <table class="table table-bordered shadow  bg-body rounded">
-              <thead>
-                <tr style="font-weight: bold;">
-                  <th scope="col">skill set</th>
-                  <th scope="col">juniar</th>
-                  <th scope="col">intermidiate</th>
-                  <th scope="col">senior</th>
-                  <th scope="col">lead</th>
-                  <th scope="col">Action</th>
-    
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">welder</th>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                      <label class="form-check-label" for="defaultCheck1">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                      <label class="form-check-label" for="defaultCheck2">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                      <label class="form-check-label" for="defaultCheck3">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-                      <label class="form-check-label" for="defaultCheck4">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
-                      <label class="form-check-label" for="defaultCheck5">                   
-                      </label>
-                    </div>
-                  </td>
-    
-                </tr>
-                <tr>
-                  <th scope="row">fitter</th>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
-                      <label class="form-check-label" for="defaultCheck6">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
-                      <label class="form-check-label" for="defaultCheck7">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
-                      <label class="form-check-label" for="defaultCheck8">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
-                      <label class="form-check-label" for="defaultCheck9">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
-                      <label class="form-check-label" for="defaultCheck10">                   
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">wigger</th>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
-                      <label class="form-check-label" for="defaultCheck11">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck12">
-                      <label class="form-check-label" for="defaultCheck12">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck13">
-                      <label class="form-check-label" for="defaultCheck13">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck14">
-                      <label class="form-check-label" for="defaultCheck14">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck15">
-                      <label class="form-check-label" for="defaultCheck15">                   
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">sactfolder</th>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck16">
-                      <label class="form-check-label" for="defaultCheck16">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck17">
-                      <label class="form-check-label" for="defaultCheck17">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck18">
-                      <label class="form-check-label" for="defaultCheck18">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck19">
-                      <label class="form-check-label" for="defaultCheck19">                   
-                      </label>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck20">
-                      <label class="form-check-label" for="defaultCheck20">                   
-                      </label>
-                    </div>
-                  </td>
-                </tr>
-    
-    
-              </tbody>
-            </table>
-          </div>
-         
-        </div>
-  
-        <div class="row m-2 p-2">
-          <p class="text-start">Offshore Training Certificate</p>
-        </div>
-  
-        <div class="row m-2 ">
-          <div class="col">
-              <select class="form-control">
-                <option selected></option>
-                <option value="1">Gujarat</option>
-                <option value="2">Delhi</option>
-                <option value="3">Goa</option>
-              </select>
-          </div>
-          <div class="col">
-            Upload certification(If Any) : <button class="browse">Browse</button>
-          </div>
-        </div>
-        
-        <div class="row p-3">
-          <div class="col d-flex justify-content-center">
-            <button class="btn btn-primary" routerLink="/addpayment" id="submit_btn">
-              Submit & Procceed
-            </button>
-          </div>
-        </div>
-        
+      <div class="col">
+        <select class="form-control">
+          <option selected>LGA</option>
+          <option value="1">Gujarat</option>
+          <option value="2">Delhi</option>
+          <option value="3">Goa</option>
+        </select>
       </div>
-    </div>  
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
+        <select class="form-control">
+          <option selected>Country</option>
+          <option value="1">India</option>
+          <option value="2">USA</option>
+          <option value="3">UK</option>
+        </select>
+      </div>
+      <div class="col">
+        <select class="form-control">
+          <option selected>Daily Woges</option>
+          <option value="1">Gujarat</option>
+          <option value="2">Delhi</option>
+          <option value="3">Goa</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row m-2 p-2">
+      <p class="text-start">Educational Details & Skill Sets :</p>
+    </div>
+
+    <div class="row m-2 p-2">
+      <div class="col">
+        <select class="form-control">
+          <option selected>Most recent Education Degree</option>
+          <option value="1">Gujarat</option>
+          <option value="2">Delhi</option>
+          <option value="3">Goa</option>
+        </select>
+      </div>
+      <div class="col">
+        Upload certification(If Any) : <button class="browse">Browse</button>
+      </div>
+    </div>
+
+    <div class="row m-2 p-2">
+      <p class="text-start">Skill Sets & Trade :</p>
+
+      <div class="row m-2 table-res" style="overflow: scroll;">
+        <table class="table table-bordered shadow  bg-body rounded">
+          <thead>
+            <tr style="font-weight: bold;">
+              <th scope="col">skill set</th>
+              <th scope="col">juniar</th>
+              <th scope="col">intermidiate</th>
+              <th scope="col">senior</th>
+              <th scope="col">lead</th>
+              <th scope="col">Action</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">welder</th>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                  <label class="form-check-label" for="defaultCheck1">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                  <label class="form-check-label" for="defaultCheck2">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                  <label class="form-check-label" for="defaultCheck3">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                  <label class="form-check-label" for="defaultCheck4">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                  <label class="form-check-label" for="defaultCheck5">
+                  </label>
+                </div>
+              </td>
+
+            </tr>
+            <tr>
+              <th scope="row">fitter</th>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                  <label class="form-check-label" for="defaultCheck6">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                  <label class="form-check-label" for="defaultCheck7">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                  <label class="form-check-label" for="defaultCheck8">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
+                  <label class="form-check-label" for="defaultCheck9">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
+                  <label class="form-check-label" for="defaultCheck10">
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">wigger</th>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
+                  <label class="form-check-label" for="defaultCheck11">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck12">
+                  <label class="form-check-label" for="defaultCheck12">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck13">
+                  <label class="form-check-label" for="defaultCheck13">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck14">
+                  <label class="form-check-label" for="defaultCheck14">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck15">
+                  <label class="form-check-label" for="defaultCheck15">
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">sactfolder</th>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck16">
+                  <label class="form-check-label" for="defaultCheck16">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck17">
+                  <label class="form-check-label" for="defaultCheck17">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck18">
+                  <label class="form-check-label" for="defaultCheck18">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck19">
+                  <label class="form-check-label" for="defaultCheck19">
+                  </label>
+                </div>
+              </td>
+              <td>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck20">
+                  <label class="form-check-label" for="defaultCheck20">
+                  </label>
+                </div>
+              </td>
+            </tr>
 
 
+          </tbody>
+        </table>
+      </div>
 
+    </div>
+
+    <div class="row m-2 p-2">
+      <p class="text-start">Offshore Training Certificate</p>
+    </div>
+
+    <div class="row m-2 ">
+      <div class="col">
+        <select class="form-control">
+          <option selected></option>
+          <option value="1">Gujarat</option>
+          <option value="2">Delhi</option>
+          <option value="3">Goa</option>
+        </select>
+      </div>
+      <div class="col">
+        Upload certification(If Any) : <button class="browse">Browse</button>
+      </div>
+    </div>
+
+    <div class="row p-3">
+      <div class="col d-flex justify-content-center">
+        <button class="btn btn-primary" routerLink="/addpayment" id="submit_btn">
+          Submit & Procceed
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

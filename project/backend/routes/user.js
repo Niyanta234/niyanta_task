@@ -1,72 +1,111 @@
-const express = require('express');
-var router = express.Router();
-const User = require('../models/signup.model');
-const bcrypt = require('bcryptjs');
-
-router.post('/signup', async (req, res) => {
-
-    try {
-        console.log(req.body)
-        const user = new User(req.body);
-        const hashPassword = await bcrypt.hash(req.body.password, 10)
-        user.password = hashPassword
-        console.log(user);
-        await user.save();
-        res.status(200).send(user);
-    } catch (e) {
-        console.log(e);
-        res.status(500).send(e);
+const bcrypt = require("bcryptjs");
+const crypto = require("crypto");
+const express = require("express");
+var router = new express.Router();
+const User = require("../models/signup.model");
+const sendEmail = require("../utils/sendmail");
+// sign Up
+router.post("/signup", async (req, res) => {
+  const user = new User(req.body);
+  try {
+    const hashPassword = await bcrypt.hash(req.body.password, 10);
+    user.password = hashPassword;
+    await user.save();
+    res.status(200).send(user);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+// sign In
+router.post("/login", async (req, res) => {
+  const user = await User.findOne({ email: req.body.email });
+  try {
+    if (!user) {
+      return res.status(404).send("User Doesn't Exists");
     }
-})
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) {
+      return res.status(400).send("Invalid Password");
+    }
+    res.status(200).send(user);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
 
-// router.post('/getuser', async (req, res) => {
-//     console.log(req.body)
-//     if (!req.body.userid) {
-//         res.status(400).send({ message: "Content can not be empty!" });
-//     }
-//     UserModel.find({ _id: req.body.userid }).then(data => {
-//         res.send({
-//             message: " success!!",
-//             user: data
-//         });
-//     }).catch(err => {
-//         res.status(500).send({
-//             message: err.message || "Some error occurred while getting user"
-//         });
-//     });
+// View User Profile
+router.get("/getuser/:id", async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (!user) {
+    return res.status(404).send("User Doesn't Exists");
+  }
+  res.status(200).send(user);
+});
 
-// })
+// forget Password
+router.post("/password/forgot", async (req, res) => {
+  // console.log("hii");
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    return res.status(404).send("User Not found");
+  }
+  // Get Resetpassword Token
+  const resetToken = user.getResetPasswordToken();
+  // console.log(resetToken);
+  await user.save({ validateBeforeSave: false });
+  const resetPasswordURI = `${req.protocol}://${req.get(
+    "host"
+  )}/user/password/reset/${resetToken}`;
+  const message = `Your password reset token is :- \n\n ${resetPasswordURI} \n\n If you have not requested this email then please ignore it`;
 
-// router.post('/login', async (req, res) => {
-//     console.log(req.body)
-//     if (!req.body.mail && !req.body.password) {
-//         res.status(400).send({ message: "Content can not be empty!" });
-//     }
-//     UserModel.findOne({ email: req.body.mail, pass: req.body.password }).then(data => {
-//         console.log("try again", data);
-//         if (data != null) {
-//             res.send({
-//                 message: " success!!",
-//                 user: data
-//             });
-//         } else {
-//             res.status(500).send({
-//                 message: "Invalid email or password"
-//             });
-//         }
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: `Job Link Password Recovery`,
+      message,
+    });
+    res.status(200).send({msg:`Email send  to ${user.email} Successfully`});
+  } catch (e) {
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save({ validateBeforeSav: false });
+    res.status(500).send(e);
+  }
+});
 
-//     }).catch(err => {
-//         console.log("catch");
+// After Getting mail then useurl for reset the password
+router.put("/password/reset/:token", async (req, res) => {
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
 
-//         res.status(500).send({
-//             message: err.message || "Invalid email or password"
-//         });
-//     });
-// });
+  console.log(resetPasswordToken);
+  const user = await User.findOne({
+    resetPasswordToken,
+    resetPasswordExpire: { $gt: Date.now() },
+  });
+  console.log(user);
+  if (!user) {
+    return res
+      .status(404)
+      .json("Reset password Token Is Invalid Or Has Been Expired");
+  }
+  if (req.body.password !== req.body.confirmPassword) {
+    return res
+      .status(404)
+      .json("Password Does Not Match with Confirm Password");
+  }
+  const hashPassword = await bcrypt.hash(req.body.password, 10);
 
-router.get('/test', (req,res) => {
-    res.send("test")
-})
-
+  user.password = hashPassword;
+  user.resetPasswordToken = undefined;
+  user.resetPasswordExpire = undefined;
+  await user.save();
+  res.status(200).json(user);
+});
 
 module.exports = router;

@@ -11,7 +11,7 @@ import { SetProfileComponent } from './set-profile/set-profile.component';
 import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 import { AddPaymentComponent } from './add-payment/add-payment.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import {HttpClientModule} from '@angular/common/http'
     ResetPasswordComponent,
     SetProfileComponent,
     PaymentHistoryComponent,
-    AddPaymentComponent
+    AddPaymentComponent,
   ],
   
   imports: [

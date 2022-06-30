@@ -1,23 +1,37 @@
-
- 
- .form-control{
-   border-radius: 50px;
- }
- .main{
-   background-color: white;
- }
- #submit_btn{
-   border-radius: 50px;
-    background-image: linear-gradient(to left, #21CE99 ,#1AF5B2);
-    border-color: #1AF5B2;
- }
- 
- .browse{
-   border-color: aqua;
-   color: aqua;
-   background-color:rgb(203, 255, 237);
-   border-radius: 5px;
+.form-control {
+  border-radius: 50px;
 }
-p{
-   font-weight: 200;
- }
+
+.main {
+  background-color: white;
+}
+
+#submit_btn {
+  border-radius: 50px;
+  background-image: linear-gradient(to left, #21CE99, #1AF5B2);
+  border-color: #1AF5B2;
+}
+
+.browse {
+  border-color: aqua;
+  color: aqua;
+  background-color: rgb(203, 255, 237);
+  border-radius: 5px;
+}
+
+p {
+  font-weight: 200;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.table-res::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.table-res {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
