@@ -27,7 +27,12 @@ export class AuthService {
   
   reset_pass(data:any){
     console.log(data);
-    return this.http.post<any>('http://localhost:3000/user/password/reset/:token',data);
+    return this.http.put<any>('http://localhost:3000/user/resetpassword/'+data.token,{password:data.password});
+  }
+  
+  add_payment(data:any){
+    console.log(data);
+    return this.http.post<any>('http://localhost:3000/user/addpayment',data);
   }
   
 }

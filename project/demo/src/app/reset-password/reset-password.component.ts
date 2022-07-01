@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class ResetPasswordComponent implements OnInit {
   
   resetPassword !: FormGroup;
   
-  constructor(private auth:AuthService,private router:Router) { 
+  constructor(private auth:AuthService,private router:Router,private route:ActivatedRoute) { 
    
   }
 
@@ -28,10 +28,13 @@ export class ResetPasswordComponent implements OnInit {
   
   reset(){
     
-    this.auth.reset_pass(this.resetPassword.value)
+    this.auth.reset_pass({password:this.resetPassword.value,token:this.route.snapshot.params['token']})
     .subscribe(res=>{
       console.log(res);
+      alert("Password changed successfully..!!");
+      this.router.navigateByUrl('/signUp');
     },(err)=>{
+      alert("try again..");
       console.log(err);
 
     })

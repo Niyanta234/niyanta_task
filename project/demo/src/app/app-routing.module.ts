@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'home',component:HomePageComponent},
   {path:'signUp',component:SignUpComponent},
   {path:'forgotpassword',component:ForgotPasswordComponent},
-  {path:'resetpassword',component:ResetPasswordComponent},
+  {path:'user/resetpassword/:token',component:ResetPasswordComponent},
   {path:'setprofile',component:SetProfileComponent},
   {path:'paymenthistory',component:PaymentHistoryComponent},
   {path:'addpayment',component:AddPaymentComponent},

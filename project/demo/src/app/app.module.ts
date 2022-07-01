@@ -12,6 +12,7 @@ import { PaymentHistoryComponent } from './payment-history/payment-history.compo
 import { AddPaymentComponent } from './add-payment/add-payment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
     SetProfileComponent,
     PaymentHistoryComponent,
     AddPaymentComponent,
+    NavbarComponent,
   ],
   
   imports: [

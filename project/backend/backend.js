@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const userRoute = require('./routes/user');
+const paymentRoute = require('./routes/payment')
+
 const cors = require('cors');
 
 const dotenv = require('dotenv');
@@ -27,11 +29,12 @@ mongoose.connect('mongodb://localhost:27017/user', { useNewUrlParser: true }, (e
 
 
 app.use('/user', userRoute)
+app.use('/user', paymentRoute)
 
 
 
 let port = process.env.PORT;
 
 app.listen(port, () => {
-    console.log('Server is up and running on port numner ' + port);
+    console.log('Server is up and running on port number ' + port);
 });

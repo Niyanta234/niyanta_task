@@ -87,7 +87,7 @@
 
                 <div class="row mt-30">
                   <div class="col">
-                    <button class="btn btn-primary" (click)="signIn()">
+                    <button class="btn btn-primary" (click)="signIn()" [disabled]="!loginform.valid">
                       Sign In
                     </button>
                   </div>
@@ -204,8 +204,9 @@
 
                   <div class="row m-3">
                     <div class="col">
-                      <button class="btn" (click)="signUp()">Submit</button>
+                      <button class="btn" (click)="signUp()" [disabled]="!signupform.valid">SignUp</button>
                     </div>
+                    
                     <div class="col d-flex flex-row-reverse m-3">
                       <a style="color: black" (click)="signin()"
                         >BACK TO LOGIN</a

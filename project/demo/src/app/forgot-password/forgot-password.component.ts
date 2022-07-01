@@ -35,8 +35,8 @@ export class ForgotPasswordComponent implements OnInit {
   forgot(){
     this.auth.forgot_pass(this.forgotPassword.value)
     .subscribe(res=>{
-      this.router.navigateByUrl('/setprofile');
       console.log(res);
+      alert("check your gmail inbox");
     },(err)=>{
       console.log(err);
       if(err.length!=0){

@@ -13,34 +13,13 @@ export class SignUpComponent implements OnInit {
 
   isSignUp:boolean = false;
   isLogin:boolean = true;
-  // loginform: FormGroup= new FormGroup({});
-  // signupform:FormGroup = new FormGroup({});
+ 
   loginform!:FormGroup;
   signupform!:FormGroup;
   constructor(private auth:AuthService, private fb: FormBuilder ,private cd:FormBuilder ,private router:Router) {
-    
-    // this.signupform = this.fb.group({
-    //   email: ['', Validators.required,Validators.email],
-    //   password:['',Validators.required,Validators.minLength(8)],
-    //   fullName:['',Validators.required],
-    //   mobileNo:['',Validators.required],
-    //   conformpass:['',Validators.required]
-      
-    // });
-
-    // this.loginform =this.cd.group({
-    // email: ['', Validators.required],
-    // password:['',Validators.required],
-    // })
-
+  
   }
   
-  
-
- 
-
-
-
 ngOnInit(): void {
   
   this.signupform = new FormGroup({
@@ -68,7 +47,7 @@ signUp(){
   },(err)=>{
     console.log(err);
     if(err.length!==0){
-      alert("you are already registerd please login");
+      alert("something is wrong..!!");
     }
   })
   this.isLogin=true;
