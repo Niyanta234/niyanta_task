@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 })
 export class ForgotPasswordComponent implements OnInit {
  
-  // forgotPassword : FormGroup = new FormGroup({ });
   forgotPassword !: FormGroup;
 
   constructor(private auth:AuthService,private fb:FormBuilder,private router:Router) {
@@ -18,10 +17,7 @@ export class ForgotPasswordComponent implements OnInit {
    }
    
   ngOnInit(): void {
-    // this.forgotPassword = this.fb.group({
-    //   email: [' ',Validators.required,Validators.email],
-  
-    // });
+    
     
     this.forgotPassword = new FormGroup({
       'email' : new FormControl('', [Validators.required, Validators.email]),
@@ -35,10 +31,10 @@ export class ForgotPasswordComponent implements OnInit {
   forgot(){
     this.auth.forgot_pass(this.forgotPassword.value)
     .subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       alert("check your gmail inbox");
     },(err)=>{
-      console.log(err);
+      // console.log(err);
       if(err.length!=0){
         alert("this user is not signup or check your email id")
 

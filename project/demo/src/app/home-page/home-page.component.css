@@ -5,7 +5,7 @@
 
 /* img{
     
-    right: 0;  
+    right: 0;   
     top: 20px;
     position: relative;
     float:right;
@@ -21,7 +21,7 @@
     border-radius: 50px;
     background-image: linear-gradient(to left, white, white);
     font-weight: bold;
-    font-size: 22px;
+    font-size: 17px;
     height: max-content;
 }
 
@@ -40,7 +40,7 @@
     float: left;
     font-weight: bold;
     background-color: white;
-    font-size: 22px;
+    font-size: 15px;
     padding-inline: 24px;
     padding-block: 35px;
     box-shadow: 0 0 50px #ccc;
@@ -54,11 +54,12 @@
 
 
 .home-title {
-    margin-left: 15% !important;
+    margin-left: 11% !important;
 }
 
 .home-title h1 {
-    font-size: 70px;
+    font-size: 56px;
+    /* font-size: 70px; */
 }
 
 @media (max-width: 480px) {

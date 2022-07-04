@@ -21,8 +21,8 @@ export class ResetPasswordComponent implements OnInit {
    
     
     this.resetPassword = new FormGroup({
-      'newpass': new FormControl('',[Validators.required]),
-      'confirmpass':new FormControl('',[Validators.required]),
+      'newpass': new FormControl('',[Validators.required,Validators.minLength(8)]),
+      'confirmpass':new FormControl('',[Validators.required,Validators.minLength(8)]),
     })
   }
   
@@ -30,12 +30,12 @@ export class ResetPasswordComponent implements OnInit {
     
     this.auth.reset_pass({password:this.resetPassword.value,token:this.route.snapshot.params['token']})
     .subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       alert("Password changed successfully..!!");
       this.router.navigateByUrl('/signUp');
     },(err)=>{
       alert("try again..");
-      console.log(err);
+      // console.log(err);
 
     })
   }

@@ -10,14 +10,14 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home',component:HomePageComponent},
-  {path:'signUp',component:SignUpComponent},
-  {path:'forgotpassword',component:ForgotPasswordComponent},
-  {path:'user/resetpassword/:token',component:ResetPasswordComponent},
-  {path:'setprofile',component:SetProfileComponent},
-  {path:'paymenthistory',component:PaymentHistoryComponent},
-  {path:'addpayment',component:AddPaymentComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomePageComponent },
+  { path: 'signUp', component: SignUpComponent },
+  { path: 'forgotpassword', component: ForgotPasswordComponent },
+  { path: 'user/resetpassword/:token', component: ResetPasswordComponent },
+  { path: 'setprofile', component: SetProfileComponent },
+  { path: 'paymenthistory', component: PaymentHistoryComponent },
+  { path: 'addpayment', component: AddPaymentComponent },
 ];
 
 @NgModule({

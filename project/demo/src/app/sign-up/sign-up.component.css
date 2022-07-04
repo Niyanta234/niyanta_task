@@ -33,7 +33,7 @@ body {
   text-transform: uppercase;
   border-color: white;
   border: solid 0;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .login-subline {
@@ -42,19 +42,19 @@ body {
 }
 
 .login-subline p {
-  margin-top: 5em;
+  margin-top: 3.5em;
 }
 
 .signup-form {
-  background: #fff;
-  padding-inline: 15px;
-  clear: both;
-  width: 100%;
-  box-sizing: border-box;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+   /* background: #fff; */
+   padding-inline: 15px;
+   /* clear: both; */
+   width: 100%;
+   box-sizing: border-box;
+   /* height: 400px; */
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
 }
 
 .login-form {
@@ -63,10 +63,10 @@ body {
   clear: both;
   width: 100%;
   box-sizing: border-box;
-  height: 300px;
+  height: 282px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 9px;
 }
 
 .mt-30 {
@@ -75,6 +75,7 @@ body {
 
 .form-control {
   border-radius: 50px;
+  margin-top: 10px;
 }
 
 .btn {
@@ -86,7 +87,6 @@ body {
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
-  margin-bottom: 30px;
   border-radius: 50px;
   background-image: linear-gradient(to left, #21CE99, #1AF5B2);
   border-color: #1AF5B2;
@@ -98,12 +98,13 @@ label {
 }
 
 .w-500 {
-  width: 500px;
+  width: 481px;
+  padding-inline: 38px;
 }
 
 .w-500>div {
-  padding-inline: 3rem;
   padding-block: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 
@@ -139,17 +140,13 @@ label {
 
 
 
-input {
-  height: unset;
-}
-
 .bg-body {
   box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
 }
 
-.mt-50 {
-  margin-top: 50px;
-}
+/* .mt-50 {
+  margin-top: 10px;
+} */
 
 /* .input-icons>i {
   top: 50%;

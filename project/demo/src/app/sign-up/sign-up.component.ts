@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators ,FormBuilder} from '@angular/forms';
+import { FormControl, FormGroup, Validators ,FormBuilder,ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -26,7 +26,7 @@ ngOnInit(): void {
     'email':new FormControl('',[Validators.required,Validators.email]),
     'password':new FormControl('',[Validators.required,Validators.minLength(8)]),
     'fullName':new FormControl('',[Validators.required]),
-    'mobileNo':new FormControl('',[Validators.required]),
+    'mobileNo':new FormControl('',[Validators.required,Validators.min(1000000000),Validators.max(9999999999)]),
     'confirmpass':new FormControl('',[Validators.required])
     
 })
@@ -35,32 +35,42 @@ this.loginform = new FormGroup({
   'email':new FormControl('',[Validators.required, Validators.email]),
   'password':new FormControl('',[Validators.required,Validators.minLength(8)]),
 })
+
+
 }
 
 
+
+
 signUp(){
+  if(this.signupform.invalid){
+    this.signupform.markAllAsTouched();
+    return;
+    }
   this.auth.btn_signup(this.signupform.value)
   .subscribe(res=>{
-    console.log(res);
+    // console.log(res);
     alert("Registered successfully..!!")
 
   },(err)=>{
-    console.log(err);
-    if(err.length!==0){
-      alert("something is wrong..!!");
-    }
+    // console.log(err);
+    alert("Something went wrong...Try again!!")
   })
   this.isLogin=true;
   this.isSignUp=false;
 }
 
-signIn(){
-  this.auth.btn_signin(this.loginform.value)
+async signIn(){
+  if(this.loginform.invalid){
+    this.loginform.markAllAsTouched();
+    return;
+    }
+  await this.auth.btn_signin(this.loginform.value)
   .subscribe(res=>{
-    console.log(res);
+    // console.log(res);
     this.router.navigateByUrl('/setprofile');
   },(err)=>{
-    console.log(err);
+    // console.log(err);
     if(err.length!==0){
       alert("please check your email id or password or this user is not registered");
     }

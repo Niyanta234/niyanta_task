@@ -1,59 +1,37 @@
 <app-navbar></app-navbar>
 <div class="container">
   <div class="row m-2">
-    <p>Payment History</p><hr>
+    <p>Payment History</p>
+    <hr />
   </div>
-    <table class="tables table mt-2">
-        <thead>
-          <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Recruiter Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">12 july 2022</th>
-            <td>2:00</td>
-            <td>50000</td>
-            <td>Smit</td>
-          </tr>
-          <tr>
-            <th scope="row">12 july 2022</th>
-            <td>2:00</td>
-            <td>50000</td>
-            <td>Smit</td>
-          </tr>
-          <tr>
-            <th scope="row">12 july 2022</th>
-            <td>2:00</td>
-            <td>50000</td>
-            <td>Smit</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <div class="row">
-        <div class="col justify-content-end">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-end">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-   
+  <table class="tables table mt-2">
+    <thead>
+      <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Date</th>
+        <th scope="col">Amount</th>
+        <th (click)="sort('fullName')" scope="col">
+          Recruiter Name &nbsp;&nbsp;<i class="bi bi-sort-up"></i>
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      *ngFor="
+        let obj of paymenthistorylistarr
+          | paginate: { itemsPerPage: 3, currentPage: currentpage }
+          | orderBy: key:reverse
+      "
+    >
+      <tr>
+        <th scope="row">{{ obj.createdAt | date: "mediumTime" }}</th>
+        <td>{{ obj.expiryDate | date: "dd/MM/yyyy" }}</td>
+        <td>{{ obj.amount }}</td>
+        <td>{{ obj.fullName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls
+    (pageChange)="currentpage = $event"
+  ></pagination-controls>
 </div>
-
-
-
-  
