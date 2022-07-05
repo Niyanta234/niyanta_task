@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators ,FormBuilder,ReactiveFormsModule} from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { samePass } from '../password--validator'
 
 
 @Component({
@@ -16,20 +17,27 @@ export class SignUpComponent implements OnInit {
  
   loginform!:FormGroup;
   signupform!:FormGroup;
-  constructor(private auth:AuthService, private fb: FormBuilder ,private cd:FormBuilder ,private router:Router) {
+  constructor(private auth:AuthService, private fb: FormBuilder  ,private router:Router) {
   
   }
   
 ngOnInit(): void {
-  
-  this.signupform = new FormGroup({
-    'email':new FormControl('',[Validators.required,Validators.email]),
-    'password':new FormControl('',[Validators.required,Validators.minLength(8)]),
-    'fullName':new FormControl('',[Validators.required]),
-    'mobileNo':new FormControl('',[Validators.required,Validators.min(1000000000),Validators.max(9999999999)]),
-    'confirmpass':new FormControl('',[Validators.required])
-    
-})
+  // console.log(samePass());
+  this.signupform = this.fb.group(
+    {
+      email: new FormControl('', { validators: [Validators.required] }),
+      password: new FormControl('', {validators: [Validators.required, Validators.minLength(8)]}),
+      fullName: new FormControl('', { validators: [Validators.required] }),
+      mobileNo: new FormControl('', {validators: [
+          Validators.required,
+          Validators.min(1000000000),
+          Validators.max(9999999999),
+        ],
+      }),
+      confirmpass: new FormControl('', { validators: [Validators.required] }),
+    },
+    { validators: samePass() }
+  );
 
 this.loginform = new FormGroup({
   'email':new FormControl('',[Validators.required, Validators.email]),
@@ -43,6 +51,7 @@ this.loginform = new FormGroup({
 
 
 signUp(){
+  // console.log(this.signupform)
   if(this.signupform.invalid){
     this.signupform.markAllAsTouched();
     return;

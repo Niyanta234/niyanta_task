@@ -276,6 +276,7 @@
                   type="file"
                   aria-hidden="true"
                   id="upload1"
+                  accept="image/"
                   style="display: none"
                   formControlName="edu_certificate"
                 />
@@ -346,12 +347,23 @@
 
           <div class="col">
             Upload certification(If Any) :
+            <!-- <input
+            class="browse"
+                  type="file"
+                  aria-hidden="true"
+                  id="upload2"
+                  accept="image/"
+                  formControlName="training_certificate"
+                  (change)="traningcertificate($event)"
+                  
+                /> -->
             <button class="browse" (change)="traningcertificate($event)">
               <label for="upload2">
                 <input
                   type="file"
                   aria-hidden="true"
                   id="upload2"
+                  accept="image/"
                   style="display: none"
                   formControlName="training_certificate"
                 />

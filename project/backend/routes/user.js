@@ -94,7 +94,7 @@ router.put("/resetpassword/:token", async (req, res) => {
   }
 
 
-  const hashPassword = await bcrypt.hash(req.body.password.newpass, 10);
+  const hashPassword = await bcrypt.hash(req.body.password.password, 10);
 
   user.password = hashPassword;
   user.resetPasswordToken = undefined;

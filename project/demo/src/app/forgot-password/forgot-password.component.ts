@@ -29,6 +29,11 @@ export class ForgotPasswordComponent implements OnInit {
     
   }
   forgot(){
+    if(this.forgotPassword.invalid){
+      this.forgotPassword.markAllAsTouched();
+      return;
+      }
+    
     this.auth.forgot_pass(this.forgotPassword.value)
     .subscribe(res=>{
       // console.log(res);

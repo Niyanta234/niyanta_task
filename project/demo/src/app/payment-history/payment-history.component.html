@@ -24,7 +24,7 @@
     >
       <tr>
         <th scope="row">{{ obj.createdAt | date: "mediumTime" }}</th>
-        <td>{{ obj.expiryDate | date: "dd/MM/yyyy" }}</td>
+        <td>{{ obj.createdAt | date: "dd/MM/yyyy" }}</td>
         <td>{{ obj.amount }}</td>
         <td>{{ obj.fullName }}</td>
       </tr>

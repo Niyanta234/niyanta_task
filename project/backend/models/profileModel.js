@@ -57,18 +57,18 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // degreeUpload: {
-  //   public_id: {
-  //     type: String,
-  //     required: true,
-  //     default: "xyz"
-  //   },
-  //   url: {
-  //     type: String,
-  //     required: true,
-  //     default: "xyz.png"
-  //   }
-  // },
+  degreeUpload: {
+    public_id: {
+      type: String,
+      required: true,
+      default: "xyz"
+    },
+    url: {
+      type: String,
+      required: true,
+      default: "xyz.png"
+    }
+  },
   skillSetsAndTrade: {
     skillset: {
       welder: {
@@ -93,17 +93,17 @@ const ProfileSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  // certificateUpload: {
-  //   public_id: {
-  //     type: String,
-  //     required: true,
-  //     default: "1hjkjhd"
-  //   },
-  //   url: {
-  //     type: String,
-  //     required: true,
-  //     default: "xyz.png"
-  //   }
-  // }
+  certificateUpload: {
+    public_id: {
+      type: String,
+      required: true,
+      default: "1hjkjhd"
+    },
+    url: {
+      type: String,
+      required: true,
+      default: "xyz.png"
+    }
+  }
 });
 module.exports = mongoose.model("Profile", ProfileSchema);

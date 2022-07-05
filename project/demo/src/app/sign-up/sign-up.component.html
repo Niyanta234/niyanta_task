@@ -256,25 +256,15 @@
                         formControlName="confirmpass"
                       />
 
+                      
                       <div
                         *ngIf="
-                          signupform.get('confirmpass')?.hasError('required') &&
+                          signupform.get('confirmpass')?.hasError('passdidntmatch') &&
                           signupform.get('confirmpass')?.touched
                         "
                         style="color: red; line-height: 1; height: 7px"
                       >
-                        Password is required
-                      </div>
-                      <div
-                        *ngIf="
-                          signupform
-                            .get('confirmpass')
-                            ?.hasError('minlength') &&
-                          signupform.get('confirmpass')?.touched
-                        "
-                        style="color: red; line-height: 1; height: 7px"
-                      >
-                        Password length should be greater than 8
+                        Password did not match
                       </div>
                     </div>
 

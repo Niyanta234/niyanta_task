@@ -9,6 +9,8 @@ router.post('/profile', async (req, res) => {
             folder: "avatars",
             width: 150,
             crop: "scale",
+
+
         });
         const myCloudTwo = await cloudinary.v2.uploader.upload(req.files.degreeUpload.tempFilePath, {
             folder: "degree",
