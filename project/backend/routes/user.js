@@ -54,7 +54,7 @@ router.post("/password/forgot", async (req, res) => {
   // Get Resetpassword Token
   const resetToken = user.getResetPasswordToken();
   user.resetPasswordToken = resetToken;
-  console.log(resetToken);
+  // console.log(resetToken);
   await user.save({ validateBeforeSave: false });
   const resetPasswordURI = `http://localhost:4200/user/resetpassword/${resetToken}`;
   const message = `

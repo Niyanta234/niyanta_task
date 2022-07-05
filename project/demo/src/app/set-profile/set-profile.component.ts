@@ -123,7 +123,8 @@ export class SetProfileComponent implements OnInit {
       this.route.navigateByUrl('/addpayment')
     },(err)=>{
       this.formData=null;
-      alert("Try again!!")
+      console.log(err)
+      alert(err.error.message);
       // console.log(err);
     })
   }

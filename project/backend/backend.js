@@ -15,8 +15,14 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(fileupload({useTempFiles: true}));
-
+app.use(fileupload(
+  {
+    useTempFiles: true,
+    limits: {
+      fileSize:   1024 
+    }
+  }
+))
 mongoose.connect(
   "mongodb://localhost:27017/user",
   { useNewUrlParser: true },
